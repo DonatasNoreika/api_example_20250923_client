@@ -19,6 +19,14 @@ token = '1f5b6f643abceb098f278313dba35a37c8c780c5'
 # r = requests.post("http://127.0.0.1:8000/api-token-auth/", data=payload)
 # print(r.json())
 
+payload = {
+    "username": "admin",
+    "password": "admin"
+}
+
+r = requests.post("http://127.0.0.1:8000/api-token-auth/", data=payload)
+print(r.json())
+
 # payload = {
 #     "title": "Iš Python",
 #     "body": "Iš python tekstas"
