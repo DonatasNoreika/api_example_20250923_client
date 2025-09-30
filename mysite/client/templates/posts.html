@@ -1,7 +1,7 @@
 {% for post in posts %}
 <hr>
 <p>Author: {{ post.user }}</p>
-<h3>{{ post.title }}</h3>
+<h3><a href="{% url 'post' post.id %}">{{ post.title }}</a></h3>
 <p>{{ post.body }}</p>
 <small>Comments: {{ post.comment_count }}</small>
 {% endfor %}

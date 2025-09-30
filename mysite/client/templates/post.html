@@ -1,0 +1,10 @@
+<p>Author: {{ post.user }}</p>
+<h3>{{ post.title }}</h3>
+<p>{{ post.body }}</p>
+<small>Comments: {{ post.comment_count }}</small>
+{% for comment in post.comments %}
+<hr>
+<p>Author: {{ comment.user }}</p>
+<p>Date: {{ comment.date }}</p>
+<p>{{ comment.body }}</p>
+{% endfor %}
