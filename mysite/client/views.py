@@ -46,3 +46,13 @@ def post_edit(request, post_id):
         print(r.json())
         return redirect('posts')
     return render(request, template_name="post_form.html", context={"form": form})
+
+
+def post_delete(request, post_id):
+    r = requests.get(f"http://127.0.0.1:8000/posts/{post_id}")
+    post = r.json()
+    if request.method == "POST":
+        headers = {"Authorization": f'Token {request.user.api_token}'}
+        requests.delete(f"http://127.0.0.1:8000/posts/{post_id}", headers=headers)
+        return redirect('posts')
+    return render(request, template_name="post_delete.html", context={'post': post})
