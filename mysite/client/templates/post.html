@@ -1,6 +1,11 @@
 <p>Author: {{ post.user }}</p>
 <h3>{{ post.title }}</h3>
 <p>{{ post.body }}</p>
+{% if post.user_id == user.pk %}
+<div>
+<a href="{% url 'post_edit' post.id %}">Redaguoti</a>
+</div>
+{% endif %}
 <small>Comments: {{ post.comment_count }}</small>
 {% for comment in post.comments %}
 <hr>
